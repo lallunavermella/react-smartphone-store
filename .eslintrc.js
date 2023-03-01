@@ -9,6 +9,10 @@ module.exports = {
   ],
   overrides: [
     {
+      files: ['src/redux/*.js'],
+      rules: { 'no-param-reassign': ['error', { props: false }] },
+    },
+    {
       files: [
         '**/*.spec.js',
         '**/*.spec.jsx',
