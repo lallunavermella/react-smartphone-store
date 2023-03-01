@@ -1,9 +1,8 @@
 import React from 'react';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex justify-center items-center h-full w-full text-sm">
       HELLO WORLD
     </div>
   );
