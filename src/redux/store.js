@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import cartReducer from './index';
+import { cartReducer, productReducer } from './index';
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
+  products: productReducer,
   cart: cartReducer,
 });
 

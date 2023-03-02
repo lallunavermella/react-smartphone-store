@@ -30,5 +30,16 @@ module.exports = {
     'jest',
   ],
   rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '**/mocks/*.js',
+          '**/*.spec.js',
+          '**/*.spec.jsx',
+        ],
+        peerDependencies: true,
+      },
+    ],
   },
 };
