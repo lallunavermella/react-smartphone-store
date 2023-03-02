@@ -9,7 +9,7 @@ describe('Given App', () => {
     test('then it renders the product list', () => {
       renderWithProviders(<MemoryRouter><App /></MemoryRouter>);
 
-      const heading = screen.getByRole('heading', { name: 'Product List Page' });
+      const heading = screen.getByRole('heading', { name: 'Product list' });
 
       expect(heading).toBeInTheDocument();
     });
