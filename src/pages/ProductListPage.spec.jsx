@@ -6,7 +6,7 @@ import ProductListPage from './ProductListPage';
 
 describe('Given a ProductList page', () => {
   describe('When is invoked', () => {
-    test('Then its render with ....', async () => {
+    test('Then its render with Product list and a link role', async () => {
       renderWithProviders(<MemoryRouter><ProductListPage /></MemoryRouter>);
 
       let text;
@@ -18,6 +18,17 @@ describe('Given a ProductList page', () => {
 
       expect(text).toBeInTheDocument();
       expect(link.length).toBe(2);
+    });
+    test('Then when its loading render the word "Loading"', async () => {
+      renderWithProviders(<MemoryRouter><ProductListPage /></MemoryRouter>);
+
+      let loading;
+
+      await waitFor(() => {
+        loading = screen.getByText('Loading');
+      });
+
+      expect(loading).toBeInTheDocument();
     });
   });
 });

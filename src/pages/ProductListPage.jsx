@@ -16,10 +16,10 @@ function ProductListPage() {
   return (
     <div className="flex flex-col items-center h-full w-full p-4">
       <div className="w-full flex flex-row justify-between">
-        <h1>
+        <h2>
           Product list
           {!productList.isLoading && `: ${productList.products.length}`}
-        </h1>
+        </h2>
         <Search />
       </div>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-3 mt-4">
