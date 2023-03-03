@@ -9,8 +9,8 @@ export const fetchProducts = createAsyncThunk(
   },
 );
 
-export const fetchProductDetails = createAsyncThunk(
-  'products/fetchProductDetails',
+export const fetchProductDetail = createAsyncThunk(
+  'products/fetchProductDetail',
   async (productId) => {
     const response = await fetch(`https://itx-frontend-test.onrender.com/api/product/${productId}`);
     const data = await response.json();
