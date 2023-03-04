@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { productsApi } from './api';
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    numProducts: 0,
+    numProducts: sessionStorage.getItem('cart') || 0,
   },
-  reducers: {
-    incremented: (state) => {
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addMatcher(productsApi.endpoints.postCart.matchFulfilled, (state) => {
       state.numProducts += 1;
-    },
-
+      sessionStorage.setItem('cart', state.numProducts);
+    });
   },
 });
-
-export const { incremented } = cartSlice.actions;
 
 export const selectCartProductCount = (state) => state.cart.numProducts;
 

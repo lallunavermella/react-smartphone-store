@@ -12,7 +12,11 @@ export const productsApi = createApi({
       query: (productId) => `api/product/${productId}`,
     }),
     postCart: builder.mutation({
-      query: () => 'api/cart',
+      query: ({ ...body }) => ({
+        url: 'api/cart',
+        method: 'POST',
+        body,
+      }),
     }),
   }),
 });
