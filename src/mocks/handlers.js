@@ -93,6 +93,12 @@ const handlers = [
       },
     }),
   )),
+  rest.post('https://itx-frontend-test.onrender.com/api/cart', (req, res, ctx) => res(
+    ctx.status(200),
+    ctx.json({
+      count: 1,
+    }),
+  )),
 ];
 
 export default handlers;

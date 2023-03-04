@@ -16,7 +16,7 @@ function ProductDetailPage() {
         {isLoading && <div>Loading</div>}
         {error && (
         <div>
-          Error loading products. Try again
+          Error loading product. Try again
           <button
             type="button"
             onClick={() => {
