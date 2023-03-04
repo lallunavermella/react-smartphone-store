@@ -1,17 +1,19 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { productsApi } from './api';
 
-import { cartReducer, productReducer, productDetailReducer } from './index';
+import { cartReducer } from './index';
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
-  products: productReducer,
-  productDetail: productDetailReducer,
   cart: cartReducer,
+  [productsApi.reducerPath]: productsApi.reducer,
 });
 
 const setupStore = (preloadedState) => configureStore({
   reducer: rootReducer,
   preloadedState,
+
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(productsApi.middleware),
 });
 
 export default setupStore;
