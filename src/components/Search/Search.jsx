@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,14 +9,20 @@ function Search({ onSearch }) {
     onSearch(query);
   };
   return (
-    <div className="w-[200px] h-[40px] bg-pink-600">
-      <form onSubmit={onFormSubmit}>
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </form>
-    </div>
+    <form onSubmit={onFormSubmit}>
+      <label htmlFor="search" className="block text-sm font-medium leading-6 text-gray-900">
+        Search
+      </label>
+      <input
+        type="search"
+        name="search"
+        id="search"
+        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        placeholder="Search for a product"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+      />
+    </form>
   );
 }
 
