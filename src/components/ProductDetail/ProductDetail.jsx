@@ -22,79 +22,81 @@ function ProductDetail({
 
   return (
 
-    <div className="w-full h-full bg-gray-100 flex items-center justify-center p-4">
+    <div className="w-full h-full flex items-center justify-center p-4">
       <div className="px-10">
         <img src={imgUrl} alt={model} className="border border-spacing-1 border-red-100" />
       </div>
-      <div className="flex-col p-4">
-        {model && (
-        <div className="pb-2">
-          {`Model: ${model}`}
+      <div className="p-4 flex flex-col items-center">
+        <div className="grid grid-cols-2 my-2 p-4">
+          {model && (
+          <div className="p-2 truncate">
+            {`Model: ${model}`}
+          </div>
+          )}
+          {brand && (
+          <div className="p-2 truncate">
+            {`Brand: ${brand}`}
+          </div>
+          )}
+          {price && (
+          <div className="p-2 truncate">
+            {`Price: ${price}`}
+          </div>
+          )}
+          {cpu && (
+          <div className="p-2 truncate">
+            {`CPU: ${cpu}`}
+          </div>
+          )}
+          {ram && (
+          <div className="p-2 truncate">
+            {`RAM: ${ram}`}
+          </div>
+          )}
+          {os && (
+          <div className="p-2 truncate">
+            {`OS: ${os}`}
+          </div>
+          )}
+          {displayResolution && (
+          <div className="p-2 truncate">
+            {`Display Resolution: ${displayResolution}`}
+          </div>
+          )}
+          {battery && (
+          <div className="p-2 truncate">
+            {`Battery: ${battery}`}
+          </div>
+          )}
+          {primaryCamera && (
+          <div className="p-2 truncate">
+            {`Primary Camera: ${primaryCamera}`}
+          </div>
+          )}
+          {secondaryCmera && (
+          <div className="p-2 truncate">
+            {`Secondary Camera: ${secondaryCmera}`}
+          </div>
+          )}
+          {dimentions && (
+          <div className="p-2 truncate">
+            {`Dimentions: ${dimentions}`}
+          </div>
+          )}
+          {weight && (
+          <div className="p-2 truncate">
+            {`Weight: ${weight}`}
+          </div>
+          )}
         </div>
-        )}
-        {brand && (
-        <div className="pb-2">
-          {`Brand: ${brand}`}
+        {error && <div>Error ocurred! Try again</div>}
+        <div className="flex flex-col px-3 w-1/3">
+          <Select title="Colors" options={options?.colors} setValue={setColor} value={color} />
+          <Select title="Storage" options={options?.storages} setValue={setStorage} value={storage} />
+          <button type="submit" onClick={onAddToCart} className="rounded bg-white mt-4 py-1 px-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            ADD CART
+          </button>
         </div>
-        )}
-        {price && (
-        <div className="pb-2">
-          {`Price: ${price}`}
-        </div>
-        )}
-        {cpu && (
-        <div className="pb-2">
-          {`CPU: ${cpu}`}
-        </div>
-        )}
-        {ram && (
-        <div className="pb-2">
-          {`RAM: ${ram}`}
-        </div>
-        )}
-        {os && (
-        <div className="pb-2">
-          {`OS: ${os}`}
-        </div>
-        )}
-        {displayResolution && (
-        <div className="pb-2">
-          {`Display Resolution: ${displayResolution}`}
-        </div>
-        )}
-        {battery && (
-        <div className="pb-2">
-          {`Battery: ${battery}`}
-        </div>
-        )}
-        {primaryCamera && (
-        <div className="pb-2">
-          {`Primary Camera: ${primaryCamera}`}
-        </div>
-        )}
-        {secondaryCmera && (
-        <div className="pb-2">
-          {`Secondary Camera: ${secondaryCmera}`}
-        </div>
-        )}
-        {dimentions && (
-        <div className="pb-2">
-          {`Dimentions: ${dimentions}`}
-        </div>
-        )}
-        {weight && (
-        <div className="pb-2">
-          {`Weight: ${weight}`}
-        </div>
-        )}
-      </div>
-      {error && <div>Error ocurred! Try again</div>}
-      <div className="px-3">
-        <Select title="Colors" options={options?.colors} setValue={setColor} value={color} />
-        <Select title="Storage" options={options?.storages} setValue={setStorage} value={storage} />
-        <button type="submit" onClick={onAddToCart} className="rounded bg-white mt-4 py-1 px-2 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          ADD CART
-        </button>
       </div>
     </div>
   );

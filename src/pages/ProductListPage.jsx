@@ -36,9 +36,7 @@ function ProductListPage() {
         )}
         {!isLoading && !error && data
           .filter((product) => {
-            if (query === '') {
-              return true;
-            }
+            if (query === '') return true;
             return product.model.toLowerCase().includes(query.toLowerCase())
             || product.brand.toLowerCase().includes(query.toLowerCase());
           })

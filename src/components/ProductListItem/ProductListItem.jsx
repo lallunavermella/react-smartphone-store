@@ -9,8 +9,8 @@ function ProductListItem({
 }) {
   return (
     <Link to={`/product/${id}`}>
-      <div className="w-full h-[300px] bg-blue-200 flex flex-col justify-center items-center p-2">
-        <img loading="lazy" src={imgUrl} alt={id} />
+      <div className="w-full h-full border border-stone-500 rounded-lg bg-white flex flex-col justify-center items-center p-3">
+        <img className="p-4" loading="lazy" src={imgUrl} alt={id} />
         <p>{brand}</p>
         <p>{model}</p>
         <p>{price}</p>
