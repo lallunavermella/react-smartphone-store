@@ -19,6 +19,7 @@ function ProductDetailPage() {
           Error loading product. Try again
           <button
             type="button"
+            className='className="rounded bg-white mt-4 py-1 px-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"'
             onClick={() => {
               refetch();
             }}

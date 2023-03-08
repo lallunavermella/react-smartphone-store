@@ -14,11 +14,20 @@ describe('Given App', () => {
       expect(heading).toBeInTheDocument();
     });
   });
-  describe('When route is prduct "1"', () => {
+  describe('When route is product "1"', () => {
     test('then it renders the product detail page', () => {
       renderWithProviders(<MemoryRouter initialEntries={['/product/123']}><App /></MemoryRouter>);
 
       const heading = screen.getByRole('heading', { name: 'Product Details Page' });
+
+      expect(heading).toBeInTheDocument();
+    });
+  });
+  describe('When route is not valid', () => {
+    test('then it renders the Not Found page', () => {
+      renderWithProviders(<MemoryRouter initialEntries={['/Not/Found']}><App /></MemoryRouter>);
+
+      const heading = screen.getByRole('heading', { name: '404' });
 
       expect(heading).toBeInTheDocument();
     });

@@ -9,13 +9,23 @@ function ProductListPage() {
   } = useGetProductsQuery();
   const [query, setQuery] = useState('');
 
+  const filteredArray = () => data
+    .filter((product) => {
+      if (query === '') return true;
+      return product.model.toLowerCase().includes(query.toLowerCase())
+            || product.brand.toLowerCase().includes(query.toLowerCase());
+    })
+    .map(
+      (product) => (<ProductListItem product={product} key={product.id} />),
+    );
+
   return (
 
     <div className="flex flex-col items-center h-full w-full p-4">
       <div className="w-full flex flex-row justify-between">
         <h2>
           Product list
-          {!isLoading && `: ${data.length}`}
+          {!isLoading && `: ${filteredArray().length}`}
         </h2>
         <Search onSearch={setQuery} />
       </div>
@@ -26,6 +36,7 @@ function ProductListPage() {
           Error loading products. Try again
           <button
             type="button"
+            className='className="rounded bg-white mt-4 py-1 px-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"'
             onClick={() => {
               refetch();
             }}
@@ -34,15 +45,7 @@ function ProductListPage() {
           </button>
         </div>
         )}
-        {!isLoading && !error && data
-          .filter((product) => {
-            if (query === '') return true;
-            return product.model.toLowerCase().includes(query.toLowerCase())
-            || product.brand.toLowerCase().includes(query.toLowerCase());
-          })
-          .map(
-            (product) => (<ProductListItem product={product} key={product.id} />),
-          )}
+        {!isLoading && !error && filteredArray()}
       </div>
     </div>
   );
