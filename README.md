@@ -42,7 +42,6 @@ Components are in the `src/components/` folder and pages are in the `src/pages/`
 
 In this project the actual coverage is:
 
---------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
 All files                       |   91.17 |    89.28 |   88.23 |   92.06 |                   
@@ -74,7 +73,6 @@ All files                       |   91.17 |    89.28 |   88.23 |   92.06 |
   store.js                      |     100 |      100 |     100 |     100 |                   
  src/utils                      |     100 |      100 |     100 |     100 |                   
   utils-test.jsx                |     100 |      100 |     100 |     100 |                   
---------------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 5 passed, 5 total
 Tests:       13 passed, 13 total
