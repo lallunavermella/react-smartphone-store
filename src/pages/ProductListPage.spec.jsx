@@ -1,4 +1,5 @@
 import { screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import renderWithProviders from '../utils/utils-test';
@@ -29,6 +30,24 @@ describe('Given a ProductList page', () => {
       });
 
       expect(loading).toBeInTheDocument();
+    });
+    test('Then when it search it will render a filter list', async () => {
+      renderWithProviders(<MemoryRouter><ProductListPage /></MemoryRouter>);
+
+      let search;
+      let link;
+
+      await waitFor(() => {
+        link = screen.getAllByRole('link');
+        expect(link.length).toBe(2);
+
+        search = screen.getByRole('textbox');
+        userEvent.type(search, 'Iconia Talk z');
+        userEvent.keyboard('{enter}');
+        link = screen.getAllByRole('link');
+
+        expect(link.length).toBe(1);
+      });
     });
   });
 });

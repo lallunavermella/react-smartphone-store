@@ -5,10 +5,10 @@ import Search from './Search';
 
 describe('Given a Search component', () => {
   describe('When it is rendered', () => {
-    test('it will be render a searchbox with name "Search"', () => {
+    test('it will be render a textbox with name "Search"', () => {
       renderWithProviders(<Search onSearch={jest.fn} />);
 
-      const input = screen.getByRole('searchbox', { name: 'Search' });
+      const input = screen.getByRole('textbox', { name: 'Search' });
 
       expect(input).toBeInTheDocument();
     });
